@@ -134,10 +134,14 @@
             opts.loading.selector = opts.loading.selector || opts.contentSelector;
 
             // Define loading.msg
-            opts.loading.msg = $('<div id="infscr-loading"><img alt="Loading..." src="' + opts.loading.img + '" /><div>' + opts.loading.msgText + '</div></div>');
+            if (opts.loading.img === "") {
+               opts.loading.msg = $('<div id="infscr-loading"><img alt="Loading..." src="' + opts.loading.img + '" /><div>' + opts.loading.msgText + '</div></div>');
 
-            // Preload loading.img
-            (new Image()).src = opts.loading.img;
+               // Preload loading.img
+               (new Image()).src = opts.loading.img;
+            } else {
+               opts.loading.msg = $('<div id="infscr-loading"><div>' + opts.loading.msgText + '</div></div>');
+            }
 
             // distance from nav links to bottom
             // computed as: height of the document + top offset of container - top offset of nav link
