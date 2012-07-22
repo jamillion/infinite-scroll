@@ -135,12 +135,13 @@
 
             // Define loading.msg
             if (opts.loading.img === "") {
+               opts.loading.msg = $('<div id="infscr-loading"><div>' + opts.loading.msgText + '</div></div>');
+               
+            } else {
                opts.loading.msg = $('<div id="infscr-loading"><img alt="Loading..." src="' + opts.loading.img + '" /><div>' + opts.loading.msgText + '</div></div>');
 
                // Preload loading.img
                (new Image()).src = opts.loading.img;
-            } else {
-               opts.loading.msg = $('<div id="infscr-loading"><div>' + opts.loading.msgText + '</div></div>');
             }
 
             // distance from nav links to bottom
